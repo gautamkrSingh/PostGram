@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,5 @@ Route::view('/error', 'error');
 Route::middleware(['restricted'])->group(function () {
     // Route::view('/dashboard', 'dashboard');
 });
+Route::Post('/authentication', [AuthController::class, 'authentication']);
+Route::Post('/register', [AuthController::class, 'registration']);
